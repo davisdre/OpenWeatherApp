@@ -50,8 +50,6 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  const httpServer = createServer(app);
-
   app.get("/api/forecast", async (req, res) => {
     const city = req.query.city as string;
     if (!city) {
@@ -74,5 +72,6 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  const httpServer = createServer(app);
   return httpServer;
 }
