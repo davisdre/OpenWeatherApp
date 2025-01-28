@@ -47,7 +47,7 @@ export function CurrentWeather({ city, onError }: CurrentWeatherProps) {
           <div className="flex items-center gap-4">
             <WeatherIcon code={data.weather[0].icon} size={64} />
             <div>
-              <p className="text-4xl font-bold">{Math.round(data.main.temp)}°C</p>
+              <p className="text-4xl font-bold">{Math.round(data.main.temp)}°F</p>
               <p className="text-gray-600 capitalize">{data.weather[0].description}</p>
             </div>
           </div>
@@ -61,11 +61,11 @@ export function CurrentWeather({ city, onError }: CurrentWeatherProps) {
             </div>
             <div>
               <p className="text-sm text-gray-500">Wind</p>
-              <p className="text-lg font-semibold">{Math.round(data.wind.speed)} m/s</p>
+              <p className="text-lg font-semibold">{Math.round(data.wind.speed)} mph</p>
             </div>
             <div>
               <p className="text-sm text-gray-500">Feels like</p>
-              <p className="text-lg font-semibold">{Math.round(data.main.feels_like)}°C</p>
+              <p className="text-lg font-semibold">{Math.round(data.main.feels_like)}°F</p>
             </div>
             <div>
               <p className="text-sm text-gray-500">Pressure</p>

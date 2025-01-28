@@ -13,7 +13,7 @@ export function registerRoutes(app: Express): Server {
 
     try {
       const response = await fetch(
-        `${OPENWEATHER_API_URL}/weather?q=${encodeURIComponent(city)}&appid=${OPENWEATHER_API_KEY}&units=metric`
+        `${OPENWEATHER_API_URL}/weather?q=${encodeURIComponent(city)}&appid=${OPENWEATHER_API_KEY}&units=imperial`
       );
 
       if (!response.ok) {
@@ -35,7 +35,7 @@ export function registerRoutes(app: Express): Server {
 
     try {
       const response = await fetch(
-        `${OPENWEATHER_API_URL}/weather?q=${encodeURIComponent(city)}&appid=${OPENWEATHER_API_KEY}&units=metric`
+        `${OPENWEATHER_API_URL}/weather?q=${encodeURIComponent(city)}&appid=${OPENWEATHER_API_KEY}&units=imperial`
       );
 
       if (!response.ok) {
