@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { SearchBox } from "@/components/weather/search-box";
 import { CurrentWeather } from "@/components/weather/current-weather";
+import { Forecast } from "@/components/weather/forecast";
 import { useState } from "react";
 
 export default function Home() {
@@ -33,7 +34,10 @@ export default function Home() {
         {selectedCity && (
           <Card className="backdrop-blur-sm bg-white/80">
             <CardContent className="p-6">
-              <CurrentWeather city={selectedCity} onError={handleError} />
+              <div className="space-y-6">
+                <CurrentWeather city={selectedCity} onError={handleError} />
+                <Forecast city={selectedCity} onError={handleError} />
+              </div>
             </CardContent>
           </Card>
         )}
