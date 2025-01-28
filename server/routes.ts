@@ -6,6 +6,22 @@ const OPENWEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
 const FORECAST_API_URL = "https://api.openweathermap.org/data/2.5/forecast";
 
 export function registerRoutes(app: Express): Server {
+  app.get("/api/usage", async (_req, res) => {
+    try {
+      const usage = await db.select().from(apiUsage)
+        .where(eq(sql`DATE(${apiUsage.date})`, sql`DATE(NOW())`))
+        .limit(1);
+      
+      const count = usage[0]?.count || 0;
+      res.json({ 
+        used: count,
+        remaining: Math.max(0, 1000 - count),
+        limit: 1000
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch usage data" });
+    }
+  });
   app.get("/api/weather/validate", async (req, res) => {
     const city = req.query.city as string;
     if (!city) {
