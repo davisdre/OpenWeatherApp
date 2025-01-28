@@ -38,6 +38,9 @@ export default function Home() {
           </Card>
         )}
       </div>
+      <footer className="text-center text-sm text-blue-600 py-4">
+        Made with ♥️ by Drew | Powered by Replit
+      </footer>
     </div>
   );
 }
