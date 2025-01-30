@@ -40,7 +40,7 @@ export function SearchBox({ onCitySelect, onError }: SearchBoxProps) {
     <form onSubmit={handleSubmit} className="flex gap-2">
       <div className="flex-1">
         <Input
-          placeholder="Enter city name..."
+          placeholder="Enter city name or zip code..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full"
