@@ -13,8 +13,10 @@ export function registerRoutes(app: Express): Server {
     }
 
     try {
+      const isZipCode = /^\d{5}$/.test(city);
+      const queryParam = isZipCode ? `zip=${city},us` : `q=${encodeURIComponent(city)}`;
       const response = await fetch(
-        `${OPENWEATHER_API_URL}/weather?q=${encodeURIComponent(city)}&appid=${OPENWEATHER_API_KEY}&units=imperial`
+        `${OPENWEATHER_API_URL}/weather?${queryParam}&appid=${OPENWEATHER_API_KEY}&units=imperial`
       );
 
       if (!response.ok) {
@@ -35,8 +37,10 @@ export function registerRoutes(app: Express): Server {
     }
 
     try {
+      const isZipCode = /^\d{5}$/.test(city);
+      const queryParam = isZipCode ? `zip=${city},us` : `q=${encodeURIComponent(city)}`;
       const response = await fetch(
-        `${OPENWEATHER_API_URL}/weather?q=${encodeURIComponent(city)}&appid=${OPENWEATHER_API_KEY}&units=imperial`
+        `${OPENWEATHER_API_URL}/weather?${queryParam}&appid=${OPENWEATHER_API_KEY}&units=imperial`
       );
 
       if (!response.ok) {
@@ -57,8 +61,10 @@ export function registerRoutes(app: Express): Server {
     }
 
     try {
+      const isZipCode = /^\d{5}$/.test(city);
+      const queryParam = isZipCode ? `zip=${city},us` : `q=${encodeURIComponent(city)}`;
       const response = await fetch(
-        `${FORECAST_API_URL}?q=${encodeURIComponent(city)}&appid=${OPENWEATHER_API_KEY}&units=imperial`
+        `${FORECAST_API_URL}?${queryParam}&appid=${OPENWEATHER_API_KEY}&units=imperial`
       );
 
       if (!response.ok) {
